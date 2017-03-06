@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>闭包</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function f(){
+			
+			
+			for(var i = 0 ;i<5;i++){
+				setTimeout(function(){
+					console.log(i);
+				}(i),10);
+			}
+		}
+		f();
+		console.log(typeof i);
+	</script>
+</body>
+</html>

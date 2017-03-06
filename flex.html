@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>flex布局</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		.container{
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			font-size: 30px;
+		}
+		.container > *{
+			flex: 1 100%;
+		}
+		.header{
+			color:white;
+			height: 100px;
+			background-color: black;
+			box-shadow: 3px 3px 10px lightgrey;
+			z-index: 0;
+		}
+		.foot{
+			height: 100px;
+			background-color: lightgrey;
+		}
+		.main{
+			height: 400px;
+			background-color: grey;
+		}
+		.lside{background-color: lightyellow;}
+
+		@media screen and (min-width:600px) {
+			.side{flex: 1 auto;}
+		}
+		@media screen and (min-width: 800px){
+			.main{
+				flex: 2 ;
+				order:2;
+			}
+			.lside{
+				flex: 1;
+				order: 1;
+			}
+			.rside{
+				flex: 1 ;
+				order: 3;
+			}
+			.foot{
+				order: 4;
+			}
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">header</div>
+		<div class="main">main</div>
+		<div class="side lside">left</div>
+		<div class="side rside">right</div>
+		<div class="foot">foot</div>
+	</div>
+</body>
+</html>
+

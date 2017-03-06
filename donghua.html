@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <style type="text/css">
+      *{
+        margin: 0px;
+        padding: 0px;
+      }
+      .top{
+        height: 100px;
+        background-color: #01F;
+      }
+      .leftbar{
+        height: 300px;
+        background-color: #06F;
+        float: left;
+        width: 200px;
+      }
+      .main{
+        
+        height: 300px;
+        background-color: #09F;
+        margin-left:200px; 
+        margin-right:200px; 
+      }
+      .rightbar{
+        height: 300px;
+        background-color: #06F;
+        float: right;
+        width: 200px;
+      }
+      .foot{
+        height: 100px;
+        clear: both;
+        background-color: #02F;
+      }
+      ul.menu{
+        background-color: blue;
+        position: fixed;  
+        width: 30px;
+        right: 20px;
+        bottom: 20px;
+        border:1px solid green; 
+      }
+    </style>
+    <script type="text/javascript">
+        var tot1=1;
+        var tot2=1;
+        var sta=0;
+        var ar = new Array();
+        function add(){
+          
+          if(tot1 < 11 && sta==0){
+            
+            if(tot1 != 10) {
+              setTimeout(add,35);
+            }
+            var me = document.getElementById("nev");
+            var c = document.createElement("li");
+            c.innerHTML=tot1;
+            var ad = document.getElementById('add_b');
+            ad.innerHTML='-';
+            me.insertBefore(c,ad);
+            tot1++;
+            if(tot1==11){
+              sta = 1;
+              tot2 = 1;
+            }
+          }
+          else if(sta==1 && tot2!=11){
+            if(tot2!=10){
+              setTimeout(add,35);
+            }
+            //alert(tot2);
+            /*if(tot2==1){
+              alert(document.getElementById("nev").firstChild);
+            }*/
+            var me = document.getElementById("nev");
+            me.removeChild(me.firstChild);
+            var ad = document.getElementById('add_b');
+            ad.innerHTML='+';
+            tot2++;
+            if(tot2==11){
+              sta = 0;
+              tot1 = 1;
+            }
+          }
+          //var c = document.getElementById("add_b");
+          //c.style.display="none";
+        }
+        
+    </script>
+  </head>
+  <body>
+    <div class="top">top</div>
+    <div class="leftbar">left</div><div class="rightbar">right</div>
+    <div class="main">main</div>
+    <div class="foot">foot</div>
+    <ul class="menu" id="nev"><button style="width:30px" onclick="add()" id="add_b">+</button></ul>
+    <button id = "btn2">sadasd</button>
+    <button id = "btn3">button3</button>
+    <script type="text/javascript">
+        document.getElementById('btn2').onclick=function(){
+          alert("hello");
+        }
+        function showMe(){
+          alert("hello!")
+        }
+        
+        btn3.addEventListener("click",showMe,false);
+        
+    </script>
+  </body>
+</html>
